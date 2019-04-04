@@ -1,41 +1,17 @@
 
-function checkBoardParity(colsAmount, rowsAmount) {
-    return true;
-    // @todo @aniax
-}
-
-function getRandomListOfPairsId(colsAmount, rowsAmount) {
-    return [1,4,3,4,2,3,2,1];
-    // @todo
-}
-
-function generateBoxHtml(pictureId) {
-    return '<div class="game-tile" data-card-type="'+pictureId+'"></div>';
-}
-
-function renderBoard(colsAmount, rowsAmount) {
-    if (!checkBoardParity(colsAmount, rowsAmount)) {
-        alert("WTF?");
+function checkIfSuccess(clickedId) {
+    if (clickedId == whatWasClickedPreviously()) {
+        return true;
+    } else {
         return false;
     }
-
-    let listOfIds = getRandomListOfPairsId(colsAmount, rowsAmount);
-
-
-    let numberOfBoxes = colsAmount * rowsAmount;
-    for (boxNr = 1; boxNr <= numberOfBoxes; boxNr++) {
-        $('.game-board').append(generateBoxHtml(1));
-    }
-
+    // return clicked == whatWasClickedPreviously();
 }
 
 $(() => {
     renderBoard(4, 4);
-    // @todo Make sure that size of the box is proper for cols and rows
+    updatePointsAndFails();
 });
-
-
-
 
 
 // const memoryGame = {
